@@ -1,6 +1,6 @@
 <?php
 
-//  Вывод прогноза погоды для устройств с экраном для проекта ESP32 Ready4Sky (R4S) Gateway for Redmond+ devices (@alutov)
+// Вывод прогноза погоды для устройств с экраном для проекта ESP32 Ready4Sky (R4S) Gateway for Redmond+ devices (@alutov)
 
 // загружаем картинку с прогнозом погоды; ниже еще 2 строки с ссылками на сервисы для примера:
 $image = imagecreatefrompng('https://ru.wttr.in/Нижний%20Тагил_0pnM.png');
