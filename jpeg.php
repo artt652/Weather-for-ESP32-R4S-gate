@@ -18,11 +18,8 @@ $image = imagecreatefrompng('https://ru.wttr.in/Нижний%20Тагил_0pnM.p
 // $image = imagecreatefrompng('https://rp5.ru/informer/120x60x2.php?f=10&id=5639');
 
 // сохраняем временный файл для редактирования в папке со скриптом:
-imagejpeg($image, 'temp.jpg');
-$filename = 'temp.jpg';
-
-// устанавливаем тип содержимого:
-header('Content-Type: image/jpeg');
+imagepng($image, 'temp.png');
+$filename = 'temp.png';
 
 // назначение нового размера рисунка, 320x172 - при использовании одной строки информации на шлюзе, при использовании двух строк достаточно разрешения картинки 320x144.
 list($width, $height) = getimagesize($filename);
@@ -36,17 +33,20 @@ $pasteheight = $height * $rate;
 
 // загрузка переменных для конвертации:
 $thumb = imagecreatetruecolor($newwidth, $newheight);
-$source = imagecreatefromjpeg($filename);
+$source = imagecreatefrompng($filename);
 
 // изменение размера, смещение рисунка при необходимости:
 imagecopyresampled($thumb, $source, 0, 0, 13, 8, $pastewidth, $pasteheight, $width, $height);
+
+// устанавливаем тип содержимого:
+header('Content-Type: image/jpg');
 
 //  сохранение готового изображения, имя, качество, вывод изображения на экран браузера:
 imagejpeg($thumb, 'weather.jpg', 95);
 imagejpeg($thumb);
 
 // удаляем временный файл и очищаем память:
-unlink('temp.jpg');
+unlink('temp.png');
 imagedestroy($image);
 imagedestroy($thumb);
 
