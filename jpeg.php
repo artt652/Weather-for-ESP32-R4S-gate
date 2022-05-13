@@ -29,7 +29,7 @@ $source = imagecreatefrompng($filename);
 imagecopyresampled($thumb, $source, 0, 0, 13, 6, $pastewidth, $pasteheight, $width, $height);
 
 // устанавливаем тип содержимого:
-header('Content-Type: image/jpg');
+header('content-Type: image/jpg');
 
 //  сохранение готового изображения, имя, качество, вывод изображения на экран браузера:
 imagejpeg($thumb, 'weather.jpg', 95);
