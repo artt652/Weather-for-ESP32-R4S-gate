@@ -9,7 +9,7 @@
 Использование скрипта позволяет обойти следующие ограничения:
 
   1. Большинство современных погодных информеров это не картинки, а html код. 
-Сервисы которые все же отдают картинки - например, [meteoservice.ru](https://www.meteoservice.ru/), [rp5.ru](https://rp5.ru/), [wttr.in](https://rp5.ru/) - делают это в PNG а не JPG.
+Сервисы которые все же отдают картинки - например, [meteoservice.ru](https://www.meteoservice.ru/), [rp5.ru](https://rp5.ru/), [wttr.in](https://wttr.in/) - делают это в PNG а не JPG.
 
   2. Шлюз в текущей версии 2022.05.06 не поддерживает загрузки изображений по https, а так же отображение PNG.
 
@@ -20,6 +20,7 @@
 Для отправки автоматического запроса может использоваться интеграция [Webhook Service Provider for Home Assistant](https://github.com/HCookie/Webhook-Service-home-assistant) (@HCookie).
 
 В настройках шлюза указвается адрес генерируемой картинки в папке со скриптом и выставляется желаемое время обновления в секундах.  
+
 Ссылка на изображение будет иметь вид:
 http://your.ip.or.hostname/your.path/weather.jpg
 
