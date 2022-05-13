@@ -17,7 +17,7 @@ $newwidth = 320;
 $newheight = 172;
 
 // задаем коэфициент для изменения размера изображения для вставки с сохранением пропорций оригинального изображения:
-$rate = '1.28';
+$rate = '1.32';
 $pastewidth = $width * $rate;
 $pasteheight = $height * $rate;
 
@@ -26,7 +26,7 @@ $thumb = imagecreatetruecolor($newwidth, $newheight);
 $source = imagecreatefrompng($filename);
 
 // изменение размера, смещение рисунка при необходимости:
-imagecopyresampled($thumb, $source, 0, 0, 13, 8, $pastewidth, $pasteheight, $width, $height);
+imagecopyresampled($thumb, $source, 0, 0, 13, 6, $pastewidth, $pasteheight, $width, $height);
 
 // устанавливаем тип содержимого:
 header('Content-Type: image/jpg');
