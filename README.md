@@ -31,7 +31,9 @@ http://your.ip.or.hostname/your.path/weather.jpg
 
 ![PROJECT_PHOTO](https://github.com/artt652/Weather-for-ESP32-R4S-gate/raw/main/weather.jpg)
 
-Также можно настроить [Автоматическое изменение яркости экрана](https://github.com/artt652/Circadian-Lighting-for-ESP32-R4S-gate)
+Также можно настроить:
+
+[Автоматическое изменение яркости экрана](https://github.com/artt652/Circadian-Lighting-for-ESP32-R4S-gate)
 
 [Обсуждение в телеграм](https://t.me/ESP32_R4sGate)
 
