@@ -8,10 +8,11 @@ $image = imagecreatefrompng('https://ru.wttr.in/Нижний%20Тагил_0pnM.p
 // $image = imagecreatefrompng('https://rp5.ru/informer/120x60x2.php?f=10&id=5639');
 
 // сохраняем временный файл для редактирования в папке со скриптом:
-imagepng($image, 'temp.png');
-$filename = 'temp.png';
+imagepng($image, 'weather_temp.png');
+$filename = 'weather_temp.png';
 
-// назначение нового размера рисунка, 320x172 - при использовании одной строки информации на шлюзе, при использовании двух строк достаточно разрешения картинки 320x144.
+// назначение нового размера рисунка, 320x172 - при использовании одной строки информации на шлюзе, 
+// при использовании двух строк достаточно разрешения картинки 320x144.
 list($width, $height) = getimagesize($filename);
 $newwidth = 320;
 $newheight = 172;
@@ -25,8 +26,18 @@ $pasteheight = $height * $rate;
 $thumb = imagecreatetruecolor($newwidth, $newheight);
 $source = imagecreatefrompng($filename);
 
+// загрузка переменных для вставки даты:
+$date = date('H:i:s, d.m.Y');
+$font = "fonts/SourceCodePro-Regular.ttf"; // путь к шрифту
+$color = imageColorAllocate($thumb, 252, 252, 238); //Цвет шрифта 
+$text = "↺ $date"; // текст, который мы написали здесь
+$font_size = 13; // размер шрифта
+
 // изменение размера, смещение рисунка при необходимости:
 imagecopyresampled($thumb, $source, 0, 0, 13, 6, $pastewidth, $pasteheight, $width, $height);
+
+// вставка даты и времени генерации ринунка, смещение текста при необходимости:
+imagettftext($thumb, $font_size, 0, 96, 168, $color, $font, $text);
 
 // устанавливаем тип содержимого:
 header('content-Type: image/jpg');
@@ -36,7 +47,7 @@ imagejpeg($thumb, 'weather.jpg', 95);
 imagejpeg($thumb);
 
 // удаляем временный файл и очищаем память:
-unlink('temp.png');
+unlink('weather_temp.png');
 imagedestroy($image);
 imagedestroy($thumb);
 
