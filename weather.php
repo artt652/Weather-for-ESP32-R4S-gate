@@ -2,10 +2,8 @@
 
 // Вывод прогноза погоды для устройств с экраном для проекта ESP32 Ready4Sky (R4S) Gateway for Redmond+ devices (@alutov)
 
-// загружаем картинку с прогнозом погоды; ниже еще 2 строки с ссылками на сервисы для примера:
+// загружаем картинку с прогнозом погоды:
 $image = imagecreatefrompng('https://ru.wttr.in/Домодедово аэропорт_0qpn.png');
-// $image = imagecreatefrompng('https://inf.meteoservice.ru/red/108.png');
-// $image = imagecreatefrompng('https://rp5.ru/informer/120x60x2.php?f=10&id=5639');
 
 // сохраняем временный файл для редактирования в папке со скриптом:
 imagepng($image, 'weather_temp.png');
@@ -30,7 +28,7 @@ $source = imagecreatefrompng($filename);
 $date = date('H:i:s, d.m.Y');
 $font = "fonts/SourceCodePro-Regular.ttf"; // путь к шрифту
 $color = imageColorAllocate($thumb, 252, 252, 238); //Цвет шрифта 
-$text = "↺ $date"; // текст, который мы написали здесь
+$text = "↺ $date"; // произвольный текст
 $font_size = 13; // размер шрифта
 
 // изменение размера, смещение рисунка при необходимости:
@@ -50,8 +48,5 @@ imagejpeg($thumb);
 unlink('weather_temp.png');
 imagedestroy($image);
 imagedestroy($thumb);
-
-// автоматический редирект на картинку - работает в браузере но шлюз почему-то не подхватывает(.
-//header('location:weather.jpg');
 
 ?>
