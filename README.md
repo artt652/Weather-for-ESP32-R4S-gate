@@ -1,3 +1,5 @@
+Upd.: PNG support temporary disabled
+
 # Weather-for-ESP32-R4S-gate
 
 Вывод прогноза погоды для устройств с экраном для проекта [ESP32 Ready4Sky (R4S) Gateway for Redmond+ devices](https://github.com/alutov/ESP32-R4sGate-for-Redmond) (@alutov).
